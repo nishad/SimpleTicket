@@ -1,0 +1,14 @@
+<tr style='background-color:<%= cycle("#FFF", "#F3F3F3") -%>'>
+<td><%= engineer.full_name %></td>
+<% tickets = engineer.tickets %>
+<td class="center"><%= tickets.count("status_id = 2") %></td>
+<td class="center"><%= tickets.count("status_id = 3") %></td>
+<td class="center"><%= tickets.count("status_id = 4") %></td>
+<td class="center"><%= number_with_precision(engineer.time_spent/60) %></td>
+<td class="center"><%= number_with_precision(engineer.avg_time_spent) %></td>
+<td class="center"><%= number_with_precision(Statistic.average('open_time', :conditions => "engineer_id = #{engineer.id}").to_f/60) %></td>
+<td class="center"><%= Ticket.count('company_id', :conditions => "engineer_id = #{engineer.id}", :joins => "INNER JOIN companies on companies.id = company_id INNER JOIN users on users.id = user_id", :distinct => true) %></td>
+<td class="center"><%= Ticket.count('user_id', :conditions => "engineer_id = #{engineer.id}",  :distinct => true) %></td>
+<td class="center"><%= number_with_precision(engineer.time_spent/60/30) %></td>
+<td class="center"><%= number_with_precision(engineer.time_spent_after_hours/60) %></td>
+</tr>

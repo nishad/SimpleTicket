@@ -1,0 +1,27 @@
+<div class="leftcol">
+	<h2>Add New Ticket</h2>
+    <div class="create">
+    	<% form_remote_for :ticket, @ticket, :url => { :action => "create" } do |f| %>
+        <table class="form-table"> 
+                <tr>
+                        <th>
+                                <label for="subject">Subject: </label>
+                        </th>
+                        <td>
+                                <%= f.text_field :subject, :size => 45 -%>
+                        </td>
+                </tr>
+                <tr>
+                        <th>
+                                <label for="body">Message:</label>
+                        </th>
+                        <td>
+                                <%= f.text_area :body -%>
+                        </td>
+                </tr>
+        </table>
+	<div id='ticket_add' align="right" style="padding-right: 75px;"><%= submit_tag 'Create' -%></div>
+    <% end -%>
+    </div>
+</div>
+

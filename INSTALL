@@ -1,0 +1,35 @@
+To install SimpleTicket:
+
+You must have Rails 1.1.6
+You must have feed tools `gem install feedtools`
+
+Create a database for SimpleTicket in MySQL. Custom SQL is used for the statistics
+which currently require MySQL.
+
+After creating database, copy database.example to database.yml and change the
+appropriate database connection parameters.
+
+Then run rake migrate and start the rails app (mongrel, lighttpd, apache, webrick).
+
+Next you will need to set your outgoing mail server settings in config/environment.rb
+If you do not, you will not be able to create users because users are sent an email
+with their password.
+
+We use mongrel:
+
+gem install mongrel_cluster
+cd /path/to/simpleticket
+mongrel_rails start
+
+If you want to just use webrick:
+cd /path/to/simpleticket
+ruby /script/server
+
+Then visit:
+http://localhost:3000/admin/
+
+Now that you're up and running, you need to create the first company - this is YOUR company.
+You will not be able to create tickets for this company at this time tickets for the "Engineer"
+company must be created from the client interface.
+
+The default administrative logon email address is "admin@example.com" and the password is "secret"

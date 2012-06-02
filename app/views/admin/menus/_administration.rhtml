@@ -1,0 +1,13 @@
+<ul id="administration" class="submenu">
+	<li><%= if selected == 'engineer'
+				link_to "engineer", {:controller => "administration", :action => 'engineers'}, :class => 'selected'
+			else
+				link_to "engineer", :controller => "administration", :action => 'engineers'
+			end %></li> |
+	
+	<li><%= if selected == 'notices'
+				link_to "alerts/notices", {:controller => "administration", :action => 'alerts_and_notices'}, :class => 'selected'
+			else
+				link_to "alerts/notices", :controller => "administration", :action => 'alerts_and_notices'
+			end %></li>
+</ul>

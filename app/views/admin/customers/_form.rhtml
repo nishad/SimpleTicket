@@ -1,0 +1,76 @@
+<div class="customer_left">
+        <table border="0">
+                <tr>
+                        <td><label for='customer'>Customer:</label></td>
+                        <td><%= f.text_field :name, {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="address">Address1:</label></td>
+                        <td><%= f.text_field :address1,  {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="address">Address2:</label></td>
+                        <td><%= f.text_field :address2,  {:class=>"customer_line"} %></td>
+                </tr>
+        <tr><td>
+        <label for='city'>City:</label></td>
+        <td><%= f.text_field :city %>
+        <%= f.collection_select 'state_id', @states, 'id', 'short_name' %>
+        <label for='zip'>Zip:</label>
+        <%= f.text_field :zip %> </td>
+        </tr>
+                <tr>
+                        <td><label for='main_number'>Main No.:</label></td>
+                        <td><%= f.text_field :phone, {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="fax_number">FAX NO.:</label></td>
+                        <td><%= f.text_field :fax,  {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="website">Website:</label></td>
+                        <td><%= f.text_field :website,  {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for='wiki'>Wiki:</label></td>
+                        <td><%= f.text_field :wiki, {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for='maildomain'>Domain:</label></td>
+                        <td><%= f.text_field :maildomain, {:class=>"customer_line"} %></td>
+                </tr>
+        </table>
+</div>
+<div class="customer_right">
+        <table border="0">
+                <tr>
+                        <td><label for="turn_up">Date of Turn-up:</label></td>
+                        <td><%= f.date_select :turn_up  %></td>
+                </tr>
+                <tr>
+                        <td><label for="vcio">Date of VCIO:</label></td>
+                        <td><%= f.date_select :vcio  %></td>
+                </tr>
+                <tr>
+                        <td><label for='primary_contact'>Primary Contact:</label></td>
+                        <td><%= f.text_field :contact_name, {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="contact_phone">Best phone No.:</label></td>
+                        <td><%= f.text_field :contact_phone,  {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for="ceo_name">CEO:</label></td>
+                        <td><%= f.text_field :ceo_name,  {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for='ceo_phone'>Best phone No.:</label></td>
+                        <td><%= f.text_field :ceo_phone, {:class=>"customer_line"} %></td>
+                </tr>
+                <tr>
+                        <td><label for='city'>No. of Users:</label></td>
+                        <td><%= f.text_field :contracted_users %> (Contracted) </td>
+                </tr>
+        </table>
+</div>
+

@@ -1,0 +1,48 @@
+<div id="right_col">
+	<div class="right_box">
+		<table border="0" id="data-table" class="sidebar">
+			<caption>Your Statistics</caption>
+			<tr>
+				<th>&nbsp;</th>
+				<th>Today</th>
+				<th>Yesterday</th>
+			</tr>
+			<tr>
+				<td>Open&nbsp;Tickets:</td>
+				<td><%= current_engineer.count_open %></td>
+			</tr>
+			<tr>
+				<td>Closed:</td>
+				<td><%= current_engineer.count_closed %></td>
+			</tr>
+			<tr>
+				<td>Updated:</td>
+				<td><%= Ticket.count(:conditions => "status_id != 4 AND status_id != 1 AND user_id = #{session[:user]}") %></td>
+			</tr>
+			<tr>
+				<td>Time&nbsp;Logged:</td>
+				<td><%= (current_engineer.time_spent/60).to_i %></td>
+			</tr>
+			<tr>
+				<td>Open&nbsp;>5d:</td>
+			</tr>
+			<tr>
+				<td>Updated&nbsp;>1d:</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="right_box">
+		<h4><a href="<%=h @blog_feed.link  %>"><%= @blog_feed.title %> | <%= @feed_age.to_formatted_s :short %></a></h4>
+		<ul class="simple_list">
+			<% for item in @blog_feed.items %>
+				<li>
+					<a href="<%=h item.link  %>"><%= item.title %></a>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="right_box">
+		key <br /><br /><br />
+	</div>
+</div>

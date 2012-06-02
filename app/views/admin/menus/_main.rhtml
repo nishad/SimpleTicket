@@ -1,0 +1,32 @@
+<div id="main_menu">
+	<span style="float:right; padding:0px 0px; color:#AAA; text-align: right">
+		<%= current_engineer.full_name %>
+		<%= link_to "logout", :controller => "/admin/login", :action => "signout" %><br />
+	</span>
+	<ul id="menu">
+		<%- if current_engineer.role == :engineer -%>
+			<% %w{ tickets customers }.each do |linked_page| -%>
+				<% if linked_page === selected -%>
+					<li><%= link_to	"#{linked_page}", { :controller => linked_page }, { :class => "selected" } %></li>
+				<% else -%>
+					<li><%= link_to "#{linked_page}", :controller => linked_page %></li>
+				<% end -%>
+			<% end -%>
+		<%- else -%>
+			<%- [{:name => 'tickets', :active => true},
+				 {:name => 'customers', :active => true}, 
+				 {:name => 'statistics', :active => true}, 
+				 {:name => 'administration', :active => true}].each do |linked_page| -%>
+				<%- if linked_page[:active] == true -%>
+					<% if linked_page[:name] === selected -%>
+						<li><%= link_to	linked_page[:name], { :controller => linked_page[:name] }, { :class => "selected" } %></li>
+					<% else -%>
+						<li><%= link_to linked_page[:name], :controller => linked_page[:name] %></li>
+					<% end -%>
+				<%- else -%>
+					<li><%= link_to linked_page[:name], "#", { :class => "inactive" } %></li>
+				<%- end -%>
+			<% end -%>
+		<%- end -%>
+	</ul>
+</div>

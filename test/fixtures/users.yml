@@ -1,0 +1,101 @@
+# Some users. 
+# User 1 is created on installation (see migrations) and is the first admin
+
+<% now = Time.now %>
+<% require "digest/sha2" %>
+
+system_admin:
+  id:               1
+  first_name:       System
+  last_name:        Admin
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  email:            fake@address.dtl
+  office_phone:            0000000000
+  company_id:
+  created_at:       <%= now %>
+  updated_at:       nil
+  role_id: 3
+
+# Clients
+
+nicolas:
+  id: 2
+  first_name: Nicolas
+  last_name: Paton
+  email: nicolas@paton.com
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 45678945
+  company_id: 1
+  created_at: <%= now.months_ago(10) %>
+  updated_at:
+  role_id: 2
+
+david_wrong_validation:
+  id: 3
+  first_name: David
+  last_name: Coperfield
+  email: david@cpf.us
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 54654978
+  company_id: 1
+  created_at: <%= now.months_ago(7) %>
+  updated_at:
+  role_id: 2
+
+
+javier_password_test:
+  id: 4
+  first_name: Javier
+  last_name: Cholet
+  email: javier@gcomp.com
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 659875444
+  company_id: 2
+  created_at: <%= now.yesterday %>
+  updated_at:
+  role_id: 2
+  
+maria_callas:
+  id: 5
+  first_name: Maria
+  last_name: Callas
+  email: mariacal@jojogopools.com
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 855558896
+  company_id: 3
+  created_at: <%= now.beginning_of_week %>
+  updated_at:
+  role_id: 2
+  
+# Engineers
+
+joe_the_admin_guy:
+  id: 6
+  first_name: Joe
+  last_name: Theadminguy
+  email: joe@company.com
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 5489329300
+  company_id:
+  created_at: <%= now.years_ago(2) %>
+  updated_at:
+  role_id: 1
+
+ray_the_last_admin_and_user:
+  id: 7
+  first_name: Ray
+  last_name: Man
+  email: rayman@company.com
+  password_salt:   secret
+  password_hash: <%= Digest::SHA256.hexdigest(:secret.to_s + :secret.to_s) %>
+  office_phone: 456546897
+  company_id: nil
+  created_at: <%= now %>
+  updated_at: 
+  role_id: 1

@@ -1,0 +1,9 @@
+<div id="customer">
+	<h2>Edit Customer</h2>
+	<% form_remote_for :customer, @customer, :url => {:controller => "customers", :action => "update", :id => @customer} do |f| %>
+		<%= render :partial => 'form', :locals => { :f => f }-%>
+		<div style="float:right; padding: 8px 20px;">
+			<%= submit_tag 'edit customer', :class => "lbAction", :rel => "insert" %> or <a href="javascript:;" onclick="lightbox.prototype.deactivate();">cancel</a>
+		</div>
+	<% end %>
+</div>

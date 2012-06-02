@@ -1,0 +1,34 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "administration" } %>
+<div id="create_area_large">
+	<%= link_to image_tag("buttons/btn-createEngineer.gif"), {:action => 'new_engineer'}, :class => 'lbOn' %>
+	<%# link_to image_tag("buttons/btn-createTicket.gif"), {:controller => "tickets", :action => "new"}, :class => 'lbOn' %>
+</div>
+<%= render :partial => 'admin/menus/administration', :locals => { :selected => "notices" } %>
+<h3>Alerts & Notices Admin</h3>
+<div id="content_large">
+<div id="content-inner">
+	
+	<div id="alerts">
+		<h4>Ticket Alerts</h4>
+		Refresh Every: <strong>30s</strong>
+	</div>
+	
+	<div id="notices" class="jhform">
+		<h4>Notices</h4>
+		<ul class="simple_list">
+			<% for f in get_notification_mailer_files %>
+				<li onclick="Element.toggle('<%= f.split('/').last %>')" style='background-color:<%= cycle("#F3F3F3","#FFF") -%>; cursor: pointer;'>
+					<% fname = f.split("/").last %>
+					<h4><%= fname %></h4>
+					<div id="<%= f.split("/").last %>" style="padding: 20px;display: none;cursor: default;">
+						<pre><code><%=h IO.readlines(f).join %></code></pre>
+					</div>
+				</li>
+			<% end %>
+			<% #TODO: Edit notices %>
+		</ul>
+	</div>
+	
+</div>
+</div>

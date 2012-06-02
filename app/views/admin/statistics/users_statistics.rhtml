@@ -1,0 +1,40 @@
+<%= render :partial => '/admin/shared/header' %>
+<%= render :partial => '/admin/menus/main', :locals => { :selected => "statistics" } %>
+<%= render :partial => '/admin/tickets/create_area_large' -%>
+<%= render :partial => '/admin/menus/statistics', :locals => { :selected => "users" } %>
+<script type="text/javascript" charset="utf-8">
+	function selectCompany() {
+		selector = $('company-selector')
+		if(selector.options[selector.selectedIndex].value != "")
+		window.location.href= selector.options[selector.selectedIndex].value
+	}
+</script>
+<h3 class='administration'>Users statistics of
+<select id="company-selector" onChange="selectCompany()">
+<%= options_for_select(@companies.collect { |c| ["#{c.name}".upcase,(url_for :company_id => c.id)] },(url_for :company_id => @company.id)) %>	
+</select>
+</h3>
+
+<div id="content_large">
+<div id="content-inner">
+	<table class="sortable" id="data-table">
+		<tr id='table_header'>
+			<th>User(<%= @company.employees.count %>)</th>
+			<th class="center">No. Open Tickets</th>
+			<th class="center">No. Closed Tickets</th>
+			<th class="center">No. Hours Logged</th>
+			<th class="center">Avg. Time per Ticket</th>
+			<th class="center">Avg. Time of Open Tickets</th>
+			<th class="center">Avg. Time Pending</th>
+			<th class="center">Avg. Time Contacted</th>
+			<th class="center">% of High Priority Tickets</th>
+			<th class="center">% of Support</th>
+		</tr>
+		<%= render(:partial => "user", :collection => @users) %>
+	</table>
+	<div style="background-color: #eee; text-align:right; padding:10px">
+		<%# pagination_for(@users_count, 10, @page) %>
+	</div>
+</div>
+</div>
+

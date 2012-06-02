@@ -1,0 +1,7 @@
+
+The real README for SimpleTicket is 'README' and 'INSTALL'.
+From here, if you'd like more documentation please run 'rake appdoc'
+or check out the web site or blog for the latest information.
+
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake appdoc" to generate API documentation for your models and controllers.

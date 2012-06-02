@@ -1,0 +1,4 @@
+<select id="user_id" name="user_id">
+	<option value="" selected="selected"></option>
+	<%= options_from_collection_for_select(ajax_find_users_from_customer_selection, "id", "full_name") %>
+</select>

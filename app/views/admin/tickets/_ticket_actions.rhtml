@@ -1,0 +1,29 @@
+<div class="ticket_actions">
+	<% unless ticket_actions.engineer_id == session[:user]  -%>
+		<a href="/admin/tickets/take_ticket/<%= ticket_actions.id -%>"><%= image_tag('icons/icn-create-plus-blue.gif') -%> take ticket</a>
+	<%- else -%>
+		<a href="#" class='greyed_out'><%= image_tag('icons/icn-create-plus-grey.gif') -%> take ticket</a>
+	<% end -%>
+	
+	<a href="/admin/ticket_update/view_history/<%= ticket_actions.id -%>"  onclick="window.open(this.href,'new_window','height=600,width=700,scrollbars=yes');return false;">
+		<%= image_tag('icons/icon-opml.gif') -%> view history
+	</a>
+
+	<%  unless controller.action_name == 'list_pending' -%>
+		<a href="#" onclick="new Ajax.Request('/admin/ticket_update/quick_update/<%= ticket_actions.id -%>/', {asynchronous:true, evalScripts:true}); return false;">
+			<%= image_tag('icons/icn-alert-check.gif') -%> quick update
+		</a>
+	<%- else -%>
+		<a href="#" class='greyed_out'><%= image_tag('icons/icn-alert-check-grey.gif') -%> quick update</a>
+	<%- end -%>
+
+	<a href="#" class='greyed_out'><%= image_tag('icons/icon-phone-grey.gif') -%> call user</a>
+	
+	<%  unless flash[:ticket_taken] == ticket_actions.id -%>
+		<a href="#" onclick="Element.toggle('ticket_<%= ticket_actions.id %>_details'); Element.toggle('ticket_<%= ticket_actions.id %>_update'); Element.setStyle('ticket_<%= ticket_actions.id %>', {cursor:'pointer'} );">
+			<%= image_tag('icons/icn-delete-x-blue.gif') -%> close view
+		</a>
+	<%- else -%>
+		<a href="#" class='greyed_out'><%= image_tag('icons/icn-delete-x-grey.gif') -%> close view</a>
+	<%- end -%>		
+</div>

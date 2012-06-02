@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Simple Ticket - <%= Inflector.humanize(controller.controller_name) %> | <%= Inflector.humanize(controller.action_name) %></title>
+	<%= stylesheet_link_tag 'admin','lightbox' %>
+	<%= stylesheet_link_tag	'print', :media => 'print' %>
+	<%= javascript_include_tag :defaults, 'lightbox' %>
+	<style type="text/css" media="screen">
+    	@import "/stylesheets/simple.css";
+	
+		.flash-warning {
+			padding: 5px 10px;
+			font: 110% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+			font-weight: bold;
+			color: #000;
+			background: #faa;
+		}
+		.flash-notice {
+			padding: 5px 10px;
+			font: 110% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+			font-weight: bold;
+			color: #000;
+			background: #9f9;
+		}
+	</style>
+</head>
+<body>
+<div id="fullwrap">
+	<div class="clear"><img src="/images/st_logo.gif"></div>
+
+	<%= yield %>
+
+	<div class="rightcol">
+		<%= render :partial => 'shared/right_bar' %>
+		<br />
+		<ul class="sitenav">
+			<li><a href="http://simpleticket.net/">SimpleTicket</a> (<a href="http://simpleticketblog.weblogswork.com/">blog</a>)</li>
+			<li><a href="http://architel.com/">Architel</a> (<a href="http://blog.architel.com/">blog</a>)</li>
+			<li><a href="http://biggu.com/">Biggu</a> (<a href="http://blog.biggu.com/">blog</a>)</li>
+			<li><a href="http://spurinc.com/">SPUR</a> (<a href="http://spurblog.weblogswork.com/">blog</a>)</li>
+			<li><a href="http://m-ven.com/">Texas Startup Blog</a></li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="footer">&nbsp;</div>
+</div>
+</body>
+</html>

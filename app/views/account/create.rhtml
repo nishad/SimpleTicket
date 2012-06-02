@@ -1,0 +1,63 @@
+<div id="content">
+	<h2 id="title">
+	        Please Login or Create an Account
+	</h2>
+<div id="content-inner">
+<% if session[:user] and !current_engineer.blank? and current_engineer.class.name == 'Engineer' -%>
+	<h3>Create an Account:</h3>
+	        <% form_for :employee, :url=> {:action => 'create'} do |f| -%>
+	        <table class="form-table">
+	                <tr>
+	                        <th>
+	                                <label for="email_address">Email Address: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :email -%>
+	                        </td>
+	                </tr>
+					<tr>
+	                        <th>
+	                                <label for="email_address">Password: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :password -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="first_name">First Name:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :first_name -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="last_name">Last Name:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :last_name -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="office_number">Office Number:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :office_phone -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="cell_number">Cell Number:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :cell_phone -%>
+	                        </td>
+	                </tr>
+	        </table><br />
+	        <div align="right"><%= submit_tag 'Register' -%></div>
+	        <% end -%>
+<% end -%>
+</div>
+</div>

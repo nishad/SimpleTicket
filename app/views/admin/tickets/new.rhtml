@@ -1,0 +1,47 @@
+<!-- This is the new ticket window -->
+<div id="ticket">
+		<h2 style="margin: 0 10px 5px 0;">Create Ticket</h2>
+        <%= image_tag 'activity_indicator.gif', :size => "16x16", :id => 'find_user_indicator', :style => 'display:none; float: right; padding:15px;' %>       
+ 		<div style="margin: 0 10px 5px 0;">
+                <label for='customer_id'>Select Customer:</label><br />
+                <%= collection_select '_customer', 'id', @customers, 'id', 'name', {:include_blank => true} %>
+                <%= observe_field '_customer_id', :url => {:controller => 'users', :action => 'ajax_find_users_from_customer_selection'},
+                        :with => "'customer=' + escape(value)",
+                                :loading => "Element.show('find_user_indicator')",
+                                :complete => "Element.hide('find_user_indicator')" %>
+        </div>
+        <%= form_remote_tag :html => {:action => url_for("#")},
+                                                :url => {:controller => "tickets", :action => "create"},
+                            :complete => "deactivate()",
+                            :html => {:id => "ticket_form"} %>
+        <div style="margin: 0 10px 5px 0;">
+                <label for='customer_id'>Select User:</label><br />
+                <span id="user_select">
+                        <select id="user_id" name="user_id" >
+                            <option value="" selected="selected"></option>
+                        </select>
+                </span>
+        </div>
+        <div style='margin: 10px 0'>
+                <label for="priority">Priority: </label>
+                <select id="priority_id" name="priority_id">
+                        <%= options_from_collection_for_select(@priorities, "id", "name") %>
+                </select>
+                <label for="notify" style="padding:0 0 0 15px">Notify User: </label><%= check_box_tag "notify" %>
+                <label for="take_it" style="padding:0 0 0 7px">Take Ticket: </label><%= check_box_tag "take_it" %>
+        </div>
+        <div style="margin: 0 10px 10px 14px;">
+                <label for="tags">Tags: </label>
+                <%= text_field_tag "tags", nil, {:size => 40} %>
+        </div>
+        <div style="margin: 0 10px 10px 0;">
+                <label for="subject">Subject: </label>
+                <%= text_field_tag "subject", nil, {:size => 40, :class => 'required'} %>
+        </div>
+        <div style="margin: 0 10px 5px 0;">
+                <label for="body">Describe problem:</label><br />
+                <%= text_area_tag "body", nil, {:size => "45x4", :class => 'required'} %>
+        </div>
+	<%= submit_tag "create ticket" %> <a href="#" class="lbAction" rel="deactivate">cancel</a>
+<%= end_form_tag %>
+</div>

@@ -1,0 +1,20 @@
+<ul id="statistics" class="submenu">
+	<li><%= if selected == 'customers'
+			link_to "customers statistics", {:action => "customers_statistics"}, :class => 'selected'
+			else
+			link_to "customers statistics", {:action => "customers_statistics"}
+			end %>
+	</li> |
+	<li><%= if selected == 'users'
+			link_to "users statistics", {:action => "users_statistics"}, :class => 'selected'
+			else
+			link_to "users statistics", {:action => "users_statistics"}
+			end %>
+	</li> |
+	<li><%= if selected == 'engineers'
+			link_to "engineers statistics", { :action => "engineers_statistics"}, :class => 'selected'
+			else
+			link_to "engineers statistics", { :action => "engineers_statistics"}
+			end %>
+	</li>
+</ul>

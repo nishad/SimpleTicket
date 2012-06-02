@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />		
+		<title>Simple Ticket - <%= controller.controller_name %>|<%= controller.action_name %></title>
+		<%= stylesheet_link_tag "admin"%>
+	</head>
+	<body>
+		<div style="width:100%; height:60px;">
+			<%= image_tag "simpleticket" %>
+			<span style="float:right">
+				<a href="javascript:window.close();" class="button" style="margin: 10px">close</a>
+				<a href="javascript:window.print();" class="button" style="margin: 10px">print</a>
+			</span>
+		</div>
+		<div id="history_container">
+			<h3>Ticket History</h3>
+			<strong>Date:</strong> <%= @ticket.created_at.to_formatted_s :short %><br>
+			<strong>Company:</strong> <%= @ticket.user.company.name %>
+			<strong>User:</strong> <%= @ticket.user.full_name %> <br />
+			<strong>Phone:</strong> <%= @ticket.user.office_phone %> 
+			<strong>Email:</strong> <%= @ticket.user.email %> <br />
+			<strong>Subject:</strong> <%= @ticket.subject %> <br />
+			<strong>Description:</strong> <%= h @ticket.body %><br /><hr />
+
+			<div>
+				<%- for u in @ticket.ticket_updates.sort_by {|tu| tu.created_at}.reverse -%>
+					<strong>Ticket Updated By:</strong> <%= (u.user || u.engineer).full_name -%>,
+					<strong>on</strong> <%= u.created_at.to_s(:long) -%>
+					<br />
+					<strong>Comment: </strong><%= h u.comment -%>
+					<%- if u.file -%>
+						<strong>File attached: </strong>
+						<%= link_to u.file.split('/').last, "/ticket_update/file/#{u.id}/#{u.file.split('/').last}" %><br />
+						<br />
+					<%- end -%>
+					<hr>
+				<%- end -%>
+			</div>
+		</div>
+	</body>
+</html>
+

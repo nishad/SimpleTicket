@@ -1,0 +1,13 @@
+<tr style='background-color:<%= cycle("#FFF", "#F3F3F3") -%>'>
+	<td><%= user.full_name %><%= user.id %></td>
+	<td class="center"><%= user.count_open || "0" %></td>
+	<td class="center"><%= user.count_closed || "0" %></td>
+	<td class="center"><%= user.logged_hours || "0.0" %></td>
+	<td class="center"><%= number_with_precision(Statistic.sum('total_time', :conditions => "user_id = #{user.id}").to_f/60) %></td>
+	<td class="center"><%= number_with_precision(Statistic.sum('open_time', :conditions => "user_id = #{user.id}").to_f/60) %></td>
+	<td class="center"><%= number_with_precision(Statistic.sum('pending_time', :conditions => "user_id = #{user.id}").to_f/60) %></td>
+	<td class="center"><%= number_with_precision(Statistic.sum('contacted_time', :conditions => "user_id = #{user.id}").to_f/60) %></td>
+	<td class="center"><%= "#{user.per_of_high || 0.0}" %></td>
+	<% total_open_tickets = @company.total_open_tickets.to_f %>
+	<td class="center"><%= number_with_precision((user.count_open.to_f/total_open_tickets)*100,1) unless total_open_tickets == 0 %></td>
+</tr>

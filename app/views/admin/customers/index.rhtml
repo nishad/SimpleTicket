@@ -1,0 +1,28 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "customers" } %>
+<div id="create_area_large">
+	<%= link_to image_tag("buttons/btn-createCustomer.gif"), {:action => 'new'}, :class => 'lbOn' %>
+	<%# link_to image_tag("buttons/btn-createTicket.gif"), {:controller => "tickets", :action => "new"}, :class => 'lbOn' %>
+</div>
+<h3>Customers</h3>
+<div id="content_large">
+<div id="content-inner">
+	<table id='data-table'>
+		<tr id="customers_table_header">
+			<th>Customer</th>
+			<th>Phone</th>
+			<th>Domain</th>
+			<th class="center">Open Tickets</th>
+			<th class="center">Users</th>
+			<th class="center">Website</th>
+			<th class="center">Map</th>
+			<th class="center">Wiki</th>
+			<th class="center">Edit</th>
+		</tr>
+		<%= render(:partial => "customer", :collection => @customers) %>
+	</table>
+	<div style="background-color: #eee; text-align:right; padding:10px">
+		<%= pagination_links(@customer_pages, :window_size => 2) if @customer_pages -%>
+	</div>
+</div>
+</div>

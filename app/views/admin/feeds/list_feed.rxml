@@ -1,0 +1,19 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    xml.title "Tickets: #{Inflector.humanize(controller.action_name)}"
+    xml.link url_for :only_path => false, :controller => 'tickets', :action => controller.action_name
+    xml.description("yourDescription")
+    xml.language("en-en")
+    for ticket in @tickets
+      xml.item do
+        xml.title       "#{ticket.subject} (status: #{Inflector.humanize(ticket.simple_status)})"
+        xml.description "#{ticket.body}"
+        # rfc822
+        xml.pubDate     CGI.rfc1123_date ticket.created_at
+        xml.author      "#{ticket.user.customer.name}/#{ticket.user.full_name}" if ticket.engineer do "(Engineer: #{ticket.engineer.full_name})" end
+        xml.link url_for :only_path => false, :controller => 'tickets', :action => controller.action_name
+      end
+    end
+  end
+end

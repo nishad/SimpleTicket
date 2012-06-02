@@ -1,0 +1,103 @@
+# tickets
+
+ticket1:
+  updated_at: 2006-06-22 16:34:43 
+  body: No problem. Take Care 
+  engineer_id: 6 
+  priority_id: 
+  subject: I loosed my file 
+  id: 1 
+  status_id: 1
+  user_id: 2 
+  created_at: <%= 3.days.ago.to_s(:db) %>
+
+ticket2: 
+  updated_at: 2006-06-22 16:39:37 
+  body: Well I'm sorry... You should change browsers. Get firefox. 
+  engineer_id: 7 
+  priority_id: 
+  subject: Blue Screen 
+  id: 2 
+  status_id: 4 
+  user_id: 3 
+  created_at: <%= 3.days.ago.to_s(:db) %>
+
+ticket3: 
+  updated_at: 2006-06-22 16:43:42 
+  body: Closing 
+  engineer_id: 7 
+  priority_id: 
+  subject: Unable to connect my account 
+  id: 3 
+  status_id: 1
+  user_id: 4 
+  created_at: <%= 31.minutes.ago.to_s(:db) %>
+
+ticket4: 
+  updated_at: 2006-06-22 16:48:03 
+  body: Please return your computer, I assume you are unable to use such a complicated thing. /n/nBest regards 
+  engineer_id: 7 
+  priority_id: 
+  subject: Black screen 
+  id: 4 
+  status_id: 1
+  user_id: 5 
+  created_at: <%= 20.minutes.ago.to_s(:db) %>
+
+
+ticket5:
+  updated_at: 2006-06-22 17:39:00 
+  body: Hello, /n I've lost my data I need immediate help ! 
+  engineer_id: 
+  priority_id: 
+  subject: I need help fast ! 
+  id: 5 
+  status_id: 2
+  user_id: 2 
+  created_at: <%= 1.days.ago.to_s(:db) %>
+  updated_at: <%= 20.hours.ago.to_s(:db) %>
+
+ticket6:
+  updated_at: 2006-06-22 17:40:02 
+  body: I can't connect my printer to my computer !?? 
+  engineer_id: 
+  priority_id: 
+  subject: Can't connect printer 
+  id: 6 
+  status_id: 2
+  user_id: 3 
+  created_at: <%= 30.hours.ago.to_s(:db) %>
+  updated_at: <%= 24.hours.ago.to_s(:db) %>
+
+ticket7:
+  updated_at: 2006-06-22 17:43:25 
+  body: Needing general help 
+  engineer_id: 6 
+  priority_id: 1 
+  subject: Needing help 
+  id: 7 
+  status_id: 1
+  user_id: 3 
+  created_at: <%= 20.seconds.ago.to_s(:db) %>
+
+ticket8:
+  updated_at: 2006-06-22 17:45:04 
+  body: Contacting you 
+  engineer_id: 6 
+  priority_id: 2 
+  subject: Contact me 
+  id: 8 
+  status_id: 3 
+  user_id: 4 
+  created_at: <%= 3.days.ago.to_s(:db) %>
+
+ticket9:
+  updated_at: 2006-06-22 17:46:13 
+  body: Ok, opened 
+  engineer_id: 7 
+  priority_id: 2 
+  subject: Open ticket 
+  id: 9 
+  status_id: 5
+  user_id: 5 
+  created_at: <%= 3.days.ago.to_s(:db) %>

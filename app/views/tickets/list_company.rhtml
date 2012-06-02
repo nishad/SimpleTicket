@@ -1,0 +1,8 @@
+<div id="content">
+		<h2 id="title">
+		  <%= @options[:title] %>
+		</h2>
+        <div id="content-inner">
+        <%= render(:partial => "company_ticket_table", :object => @tickets) %>
+        </div>
+</div>

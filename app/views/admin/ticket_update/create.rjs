@@ -1,0 +1,14 @@
+# We take the "ticket update" and "ticket details" <tr>s as they won't disapear on "ticket" <tr> replacement
+page.remove "ticket_#{@ticket.id}_update", "ticket_#{@ticket.id}_details"
+# We replace "ticket" <tr> (the replacement includes "ticket update" and "ticket details" <tr>s)
+page.replace "ticket_#{@ticket.id}",  :partial => '/admin/tickets/ticket_line', 
+                                      :object => @ticket,
+                                      :locals => { :actions => @actions,
+                                                   :ticket_update => @ticket_update,
+                                                   :engineers => @engineers,
+                                                   :priorities => @priorities,
+                                                   :statuses => @statuses} unless @ticket.status_id == 4
+# page.show "ticket_#{@ticket.id}_details", "ticket_#{@ticket.id}_update"
+page.visual_effect :highlight, "ticket_#{@ticket.id}"
+#We put in a notice
+# page.flash_notice(flash[:notice])

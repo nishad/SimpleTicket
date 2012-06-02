@@ -1,0 +1,11 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "tickets" } %>
+<%# render :partial => 'sidebar_stats' %>
+<%= auto_discovery_link_tag(:rss ,:controller => 'feeds', :action  =>  'list_my_tickets') %>
+<%= render :partial => "create_area" %>
+<%= render :partial => 'admin/menus/tickets', :locals => { :selected => "my tickets" } %>
+<div id="content" style="width: 100%">
+	<div id="content-inner">
+		<%= render(:partial => "ticket_table", :object => @tickets) %>		
+	</div>
+</div>

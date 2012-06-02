@@ -1,0 +1,3 @@
+NotificationMailer#notify
+
+Find me in app/views/notification_mailer/notify.rhtml

@@ -1,0 +1,15 @@
+# We close the JS lightbox with custom JS
+page << "lightbox.prototype.deactivate('lbox[1]')"
+# We insert the newly created ticket at the top of the tickets table
+page.insert_html :after, 'tickets_table_header', :partial => 'ticket_line', 
+                                                 :object => @ticket, 
+                                                 :locals => { :actions => @actions,
+                                                              :ticket_update => @ticket_update,
+                                                              :engineers => @engineers,
+                                                              :priorities => @priorities,
+                                                              :statuses => @statuses}
+# We highlight it
+page.visual_effect :highlight, "ticket_#{@ticket.id}"
+page << "new Ajax.Updater('content-inner','/admin/tickets/list_pending')"
+# We put in a notice
+# page.flash_notice(flash[:notice])

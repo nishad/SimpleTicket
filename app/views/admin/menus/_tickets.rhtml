@@ -1,0 +1,22 @@
+<ul id="tickets" class="submenu">
+	<li><%= if selected == 'pending'
+			link_to("pending", {:controller => "tickets", :action => "list_pending"}, :class => 'selected')
+			else
+			link_to("pending", {:controller => "tickets", :action => "list_pending"})
+			end %>
+	</li> | 
+	
+	<li><%= if selected == 'my tickets'
+			link_to("my tickets", {:controller => "tickets", :action => "list_my_tickets"}, :class => 'selected')
+			else
+			link_to("my tickets", {:controller => "tickets", :action => "list_my_tickets"}) 
+			end %>
+	</li> | 
+
+	<li><%= if selected == 'all tickets'
+			link_to("all tickets", {:controller => "tickets", :action => "list_all"}, :class => 'selected')
+			else
+			link_to("all tickets", {:controller => "tickets", :action => "list_all"}) 
+			end %>
+	</li>
+</ul>

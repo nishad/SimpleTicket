@@ -1,0 +1,161 @@
+
+body {
+	padding: 0px;
+	margin: 0px;
+	background: #fff url(/images/simple/body_grad.gif) repeat-x top left;
+	font-family: "MS Trebuchet", "Trebuchet MS", Arial, sans-serif;
+	text-align: left;
+	}
+
+#header {
+	margin: 0px;
+	background: #485357 url(/images/simple/head_grad.jpg) no-repeat top center;
+	padding-bottom: 10px;
+	border-bottom: 4px #485357 solid;
+}
+
+/*#fullwrap {
+	width: 700px;
+	margin: 0 auto;
+	text-align:left;
+	padding-top: 53px;
+} */
+
+#fullwrap {
+	width: 700px;
+	position:  relative;
+	left:  50%;
+	margin-left: -350px;
+	padding: 111px 0px 0px 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.leftcol {
+	float: left;
+	width: 420px;
+	padding-top: 14px;
+}
+
+.login {
+	padding: 15px;
+	background: #e9edef ;
+}
+
+.create {
+	background: #e9edef url(/images/simple/createbox_grad.gif) repeat-x top left;
+	padding: 15px;
+	border-bottom: 3px #a9b9bd solid;
+	
+}
+
+.form-table {
+	padding: 0px;
+	margin: 0px;
+}
+
+.form-table th {
+	text-align: right;
+}
+
+label {
+	font-size: 11px;
+	color: #47545a;
+}
+
+.rightcol {
+	float: right;
+	width: 240px;
+	background: #fff url(/images/simple/rcol_grad.jpg) no-repeat top left;
+	height: 400px;
+	padding-left: 22px;
+	padding-top: 14px;
+	margin-top: 60px;
+}
+
+.footer {
+	padding-top: 45px;
+	font-size: 10px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 18px;
+	color: #485357;
+}
+
+h3 {
+	margin: 0px;
+	padding: 0px 0px 12px 0px;
+	font-size: 16px;
+	color: #29515a;
+}
+
+.noaccount {
+	font-size: 12px;
+	font-style: italic;
+	color: #475558;
+}
+
+.req {
+	color: #ec4300;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.explain {
+	font-size: 11px;
+	color: #485357;
+	font-style: italic;
+}
+
+
+ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+
+ul.mainnav li {
+	background: #fff url(/images/simple/bullet.gif) no-repeat 4% 50%;
+	font-size: 13px;
+	padding: 8px 8px 8px 24px;
+	border-bottom: 1px #d9e0e3 solid;
+	font-weight: bold;
+}
+
+ul.mainnav li a:link, ul.mainnav li a:visited {
+	color: #29515a;
+	text-decoration: none;
+}
+
+ul.mainnav li a:hover, ul.mainnav li a:active {
+	text-decoration: underline;
+	
+}
+
+ul.sitenav li {
+	font-size: 11px;
+	padding: 5px 5px 5px 24px;
+	font-weight: bold;
+}
+
+ul.sitenav li a:link, ul.sitenav li a:visited {
+	color: #90a6ae;
+	text-decoration: none;
+}
+
+ul.sitenav li a:hover, ul.sitenav li a:active {
+	text-decoration: underline;
+	
+}
+
+
+
+
+
+
+

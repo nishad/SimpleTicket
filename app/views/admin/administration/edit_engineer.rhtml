@@ -1,0 +1,9 @@
+<div id="engineer">
+	<h2>Edit Engineer</h2>
+	<% form_remote_for :engineer, @engineer, :url => {:controller => "administration", :action => "update_engineer", :id => @engineer} do |f| %>
+		<%= render :partial => 'engineer_form', :locals => { :f => f }-%>
+		<div style="float:right; padding: 8px 20px;">
+			<%= submit_tag 'edit engineer' %> or <a href="#" class="lbAction" rel="deactivate">cancel</a>
+		</div>
+	<% end %>
+</div>

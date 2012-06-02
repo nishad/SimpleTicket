@@ -1,0 +1,29 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "statistics" } %>
+<%= render :partial => '/admin/tickets/create_area_large' -%>
+<%= render :partial => 'admin/menus/statistics', :locals => { :selected => "engineers" } %>
+<h3 class='administration'>Engineers statistics</h3>
+<div id="content_large">
+<div id="content-inner">
+	<table class="sortable" id='data-table'>
+		<tr id='table_header'>
+			<th>Engineer</th>
+			<th class="center">No. Open Tickets</th>
+			<th class="center">No. Contacted Tickets</th>
+			<th class="center">No. Closed Tickets</th>
+			<th class="center">No. Hours Logged</th>
+			<th class="center">Avg. Time per Ticket</th>
+			<th class="center">Avg. Time of Open Tickets</th>
+			<th class="center">No. Clients Touched</th>
+			<th class="center">No. Users Touched</th>
+			<th class="center">Avg. No. of Productive Hours per Day</th>
+			<th class="center">No. Hours Logged after Hours</th>
+		</tr>
+		<%= render(:partial => "engineer", :collection => @engineers) %>
+	</table>
+	<div style="background-color: #eee; text-align:right; padding:10px">
+		<%# pagination_for(@engineers_count, 10, @page) %>
+	</div>
+</div>
+</div>
+

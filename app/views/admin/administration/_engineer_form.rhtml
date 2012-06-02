@@ -1,0 +1,95 @@
+<style type="text/css" media="screen">
+	.eng_fp {
+		  width: 26%;
+		  height: 108px;
+		  float: left;
+		  padding: 3px;
+		  margin: 5px;
+	}
+	#eng_form_b1 {
+		width: 28%;
+	}
+	#eng_form_b0 {
+		width: 10%;
+	}
+	#eng_form_b3 {
+		width: 18%;
+/*		float: right;*/
+	}
+	.clear {
+		clear: both;
+		border-bottom: 1px solid #ababab;
+	}
+</style>
+
+<div id="eng_form_b0" class="eng_fp">
+	<div id="photo">
+		<img src="/images/photomiss.gif" height="48px" width="48px"/>
+	</div>
+</div>
+<div id="eng_form_b1" class="eng_fp">
+	<table border="0">
+		<tr>
+			<td><label for='first_name'>First&nbsp;name:</label></td>
+			<td><%= f.text_field :first_name, {:size => 16} %></td>
+		</tr>
+		<tr>
+			<td><label for="last_name">Last&nbsp;name:</label></td>
+			<td><%= f.text_field :last_name,  {:size => 16} %></td>
+		</tr>
+		<tr>
+			<td><label for="email">Email:</label></td>
+			<td><%= f.text_field :email,  {:size => 16} %></td>
+		</tr>
+		<tr>
+			<td><label for="im">IM:</label></td>
+			<td><%= f.text_field :instant_messaging,  {:size => 16} %></td>
+		</tr>
+	</table>
+</div>
+<div id="eng_form_b2" class="eng_fp">
+	<table border="0">
+		<tr>
+			<td><label for="office_phone">Office No:</label></td>
+			<td><%= f.text_field :office_phone, :size => 14  %></td>
+		</tr>
+		<tr>
+			<td><label for="cell_phone">Cell No:</label></td>
+			<td><%= f.text_field :cell_phone, :size => 14  %></td>
+		</tr>
+		<tr>
+			<td><label for="home_phone">Home No:</label></td>
+			<td><%= f.text_field :home_phone, :size => 14 %></td>
+		</tr>
+		<tr>
+			<%- if current_engineer.role.name == "Administrator" or current_engineer == @engineer -%>
+			<td><label for="password">Password:</label></td>
+			<td><%= f.password_field :password, :size => 14  %></td>
+			<%- end -%>
+		</tr>
+	</table>
+</div>
+<div id="eng_form_b3" class="eng_fp">
+	<table border="0">
+		<tr>
+			<td><label for="status_and_access">Status:</label></td>
+		</tr>
+		<tr>
+			<td><%= f.radio_button :status, 'Current' %>Current</td>
+			<td><%= f.radio_button :status, 'Former' %>Former</td>
+			<td>&nbsp;</td>
+		</tr>
+		<%- if current_engineer.role.name == "Administrator" -%>
+		<tr>
+			<td><label for="status_and_access" style='padding-left: 8px'>Access:</label></td>
+		</tr>
+		<tr>
+			<!--  [['Engineer', 1],['Manager', 2],['Administrator', 3]] -->
+			<td><%= f.radio_button :role_id, '1' %>Engineer</td>
+			<td><%= f.radio_button :role_id, '2' %>Manager</td>
+			<td><%= f.radio_button :role_id, '3' %>Administrator</td>
+		</tr>
+		<%- end -%>
+	</table>
+</div>
+<div class="clear"></div>

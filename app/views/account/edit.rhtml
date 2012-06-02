@@ -1,0 +1,67 @@
+<div class="leftcol">
+	<h2>Update Your Account</h2>
+<div class="create">
+	<% form_for :user, :url => {:action => 'update', :id => @user} do |f| -%>
+	        <table class="form-table">
+	                <tr>
+	                        <th>
+	                                <label for="email">Email Address: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :email, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="password">Type Password: </label>
+	                        </th>
+	                        <td>
+	                                <%= password_field_tag :password, nil, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="password">Re-Type Password: </label>
+	                        </th>
+	                        <td>
+	                                <%= password_field_tag :password1, nil, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="forst_name">First Name: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :first_name, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="last_name">Last Name: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :last_name, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="office_phone">Office Phone: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :office_phone, :size => "30" -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="cell_phone">Cell Phone: </label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :cell_phone, :size => "30" -%>
+	                        </td>
+	                </tr>
+	        </table><br />
+	        <div align="right"><%= submit_tag 'Update' -%></div>
+	<% end -%>
+</div>
+</div>
+

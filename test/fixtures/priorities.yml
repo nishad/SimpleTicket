@@ -1,0 +1,10 @@
+# our priorities
+high:
+  id: 1
+  name: high
+  digit: 1
+
+low:
+  id: 2
+  name: low
+  digit: 2

@@ -1,0 +1,10 @@
+<ul id="menu">
+	<%- links = ['home', 'our service', 'our advantage', 'meet architel', 'blog', 'news', 'simpleticket', 'jobs', 'contact us'] -%>
+	<% links.each do |link| -%>
+		<% if link === selected -%>
+			<li><%= link_to	"#{link}", { :controller => link }, { :class => "selected" } %></li>
+		<% else -%>
+			<li><%= link_to "#{link}", :controller => link %></li>
+		<% end -%>
+	<% end -%>
+</ul>

@@ -1,0 +1,28 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "administration" } %>
+<div id="create_area_large">
+	<%= link_to image_tag("buttons/btn-createEngineer.gif"), {:action => 'new_engineer'}, :class => 'lbOn' %>
+	<%# link_to image_tag("buttons/btn-createTicket.gif"), {:controller => "tickets", :action => "new"}, :class => 'lbOn' %>
+</div>
+<%= render :partial => 'admin/menus/administration', :locals => { :selected => "engineer" } %>
+<h3 class='administration'>Engineer Admin</h3>
+<div id="content_large">
+<div id="content-inner">
+	<table id='data-table'>
+		<tr id='engineers_table_header'>
+			<th>Engineer name</th>
+			<th>Email</th>
+			<th>Office no.</th>
+			<th>Cell no.</th>
+			<th>Home no.</th>
+			<th class="center">Last login</th>
+			<th class="center">Status</th>
+			<th>Edit</th>
+		</tr>
+		<%= render(:partial => "engineer", :collection => @engineers) %>
+	</table>
+	<div style="background-color: #eee; text-align:right; padding:10px">
+		<%= pagination_links(@engineer_pages, :window_size => 2) if @engineers -%>
+	</div>
+</div>
+</div>

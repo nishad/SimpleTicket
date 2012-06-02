@@ -1,0 +1,88 @@
+<div class="leftcol">
+	<h2>Login or Create an Account</h2>
+
+<div class="login">
+	<%= flash_div :warning, :notice %>
+	<h3>Existing Users Login:</h3>
+	        <% form_for :employee, :url=>{:action => 'login'} do |f| -%>
+	        <table class="form-table">
+	                <tr>
+	                        <th>
+	                                <label for="email_address">Email Address:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :email -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="password">Password:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.password_field :password -%>
+	                        </td>
+	                </tr>
+	        </table><br />
+	        <div align="right"><%= submit_tag 'Login' -%><!-- or <%= submit_tag 'Resend Password' -%> --></div>
+	        <% end -%>
+</div>
+
+<div class="create">
+	<span class="noaccount">Don't have an account?</span><br /><br />
+	<h3>Create an Account:</h3>
+	        <% form_for :employee, :url=> {:action => 'create'} do |f| -%>
+	        <table class="form-table">
+	                <tr>
+	                        <th>
+	                                <label for="email_address">Email Address:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :email -%>
+	                        </td>
+	                </tr>
+					<tr>
+	                        <th>
+	                                <label for="email_address">Password:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.password_field :password -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="first_name">First Name:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :first_name -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="last_name">Last Name:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :last_name -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="office_number">Office Number:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :office_phone -%>
+	                        </td>
+	                </tr>
+	                <tr>
+	                        <th>
+	                                <label for="cell_number">Cell Number:</label>
+	                        </th>
+	                        <td>
+	                                <%= f.text_field :cell_phone -%>
+	                        </td>
+	                </tr>
+	        </table><br />
+	        <div align="right"><%= submit_tag 'Register' -%></div>
+			<div align="left"><span class="req">*</span> <span class="explain">Denotes a required field</span></div>
+	        <% end -%>
+</div>
+</div>

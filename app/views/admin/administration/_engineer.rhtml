@@ -1,0 +1,10 @@
+<tr id='engineer_<%= engineer.id -%>' style='background-color: <%= cycle('#FFF', '#F3F3F3') -%>'>
+	<td><%= engineer.full_name %></td>
+	<td><%= engineer.email %></td>
+	<td><%= engineer.office_phone %></td>
+	<td><%= engineer.cell_phone %></td>
+	<td><%= engineer.home_phone %></td>
+	<td class="center"><%= engineer.last_login.to_s(:short) if engineer.last_login %></td>
+	<td class="center"><%= engineer.status %></td>
+	<td><%= link_to "go", {:action => "edit_engineer", :id => engineer}, :class => 'lbOn', :id => "row_en_#{engineer.id}" %></td>
+</tr>

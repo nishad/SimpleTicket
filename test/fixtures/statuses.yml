@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+pending:
+  id: 1
+  name: Pending
+
+contacted:
+  id: 2
+  name: Contacted
+
+open:
+  id: 3
+  name: Open
+
+closed:
+  id: 4
+  name: Closed

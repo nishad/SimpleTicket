@@ -1,0 +1,20 @@
+<%=
+  def selected_link(action)
+    if controller.action_name == action
+      return "active"
+    end
+  end
+
+%>
+<ul class="mainnav">
+        <li><%= link_to "Add New Ticket", { :controller => 'tickets', :action => 'new' }, { :class => selected_link('new') } %></li>
+        <li><%= link_to "View Open Tickets", { :controller => 'tickets', :action => 'list_open' }, { :class => selected_link('list_open') } %></li>
+        <li><%= link_to "View closed Tickets", { :controller => 'tickets', :action => 'list_closed' }, { :class => selected_link('list_closed') } %></li>
+	<% if !session[:user].nil? and (session[:user] == 1200 or session[:user] == 654) -%>
+		<li><%= link_to "View Open Company Tickets", { :controller => 'tickets', :action => 'list_company_all' }, { :class => selected_link('list_closed') } %></li>
+	<% end -%>
+        <li><%= link_to "Edit or Update your Account", { :controller => 'account', :action => 'edit' }, { :class => selected_link('edit') } %></li>
+        <% if session[:user] %>
+        <li><%= link_to "logout", :controller => "account", :action => "logout" %></li>
+        <% end %>
+</ul>

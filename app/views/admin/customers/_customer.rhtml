@@ -1,0 +1,113 @@
+<tr id='cust_<%= customer.id -%>' onclick="Element.toggle('cust_<%= customer.id %>_details')" style='cursor:pointer;background-color:<%= cycle("#FFF", "#F3F3F3") -%>'>
+        <td><%= customer.name %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.maildomain %></td>
+        <td class="center"><%= customer.tickets.open || 0 %></td>
+        <td class="center"><%= customer.employees.count %></td>
+        <td class="center"><%= link_to " go ", "#{customer.website}", :class => 'table_button', :popup => true %></td>
+        <td class="center"><%= link_to " go ", "#{customer.map}", :class => 'table_button', :popup => true %></td>
+        <td class="center"><%= link_to " go ", "#{customer.wiki}", :class => 'table_button', :popup => true %></td>
+        <td class="center"><%= link_to "go", {:action => "edit", :id => customer}, :class => 'button lbOn', :id => "row_lbox_#{customer.id}" %></td>
+</tr>
+<tr id="cust_<%= customer.id %>_details" style="display:none;">
+        <td colspan="9" id="table_details_view" >
+                <div id="cust_<%= customer.id %>_details_div">
+                        <h2>Customer details</h2>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                        <td>
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                                <th>Customer Name:</th>
+                                                                <td><%= customer.name %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Address:</th>
+                                                                <td>
+                                                                        <%= customer.address1 %>
+                                                                        <%= "<br />" + customer.address2 if customer.address2 != nil %>
+                                                                </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th></th>
+                                                                <td><%= customer.city %>, <%= customer.state.long_name if customer.state %> <%= customer.zip %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Main number:</th>
+                                                                <td><%= customer.phone %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>FAX:</th>
+                                                                <td><%= customer.fax -%></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Website</th>
+                                                                <td><%= customer.website %></td>
+                                                        </tr>
+                                                </table>
+                                        </td>
+                                        <td>
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                                <th>Date of Turn-up:</th>
+                                                                <td><%#= customer.turn_up.to_date || 'unknown' %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Date of last VCIO:</th>
+                                                                <td>
+                                                                        <%#= customer.vcio.to_date || 'unknown' %>
+                                                                </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Primary contact:</th>
+                                                                <td><%= customer.contact_name%></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Best number:</th>
+                                                                <td><%= customer.contact_phone %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>CEO:</th>
+                                                                <td><%= customer.ceo_name %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Best phone:</th>
+                                                                <td><%= customer.ceo_phone %></td>
+                                                        </tr>
+                                                </table>
+                                        </td>
+                                        <td>
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                                <th>Contracted users:</th>
+                                                                <td><%= customer.contracted_users %></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Ticket system users:</th>
+                                                                <td>
+                                                                        <%= customer.employees.count %>
+                                                                </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Minutes past 30 days:</th>
+                                                                <td><%= customer.minutes_past_30_days%></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>Tickets past 30 days:</th>
+                                                                <td><%= customer.tickets_past_30_days %></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <th>Tickets per User:</th>
+                                                          <td><%= if customer.employees.count != 0 ; customer.tickets.count/customer.employees.count else ; 0 end %></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <th>Minutes per User: (avg 30 days)</th>
+                                                          <td><%= if customer.tickets_past_30_days != 0 ; customer.minutes_past_30_days/customer.tickets_past_30_days else ; 0 end  %></td>
+                                                        </tr>
+                                                </table>
+                                        </td>
+                                </tr>
+                        </table>
+                </div>
+        </td>
+</tr>

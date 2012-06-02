@@ -1,0 +1,8 @@
+<span id='ticket_tagging_<%= list.id -%>'>
+	<%= list.tag.name -%>
+	<%= link_to_remote "[x]", 	:url => { 	:controller => "tags", 
+											:action => "delete", 
+											:id => list.id},
+								:loading => "Element.show('tagging_indicator_#{list.taggable.id}')",
+								:complete => "Element.hide('tagging_indicator_#{list.taggable.id}');Element.hide('ticket_tagging_#{list.id}')" %> <br />
+</span>

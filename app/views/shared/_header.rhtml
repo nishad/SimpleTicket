@@ -1,0 +1,13 @@
+<%= image_tag "simpleticket" %>
+<div id="notices_container">
+	<% if flash[:notice] %>
+		<div id="green_notice">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
+	<% if flash[:warning] %>
+		<div id="red_notice">
+			<%= flash[:warning] %>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,52 @@
+<div id="search" style="width: 96%">
+	Filter by(<%= link_to "reset", :action => "reset_filters" %>):
+	<%= form_remote_tag :url => {:action => 'list_all'},
+						:loading => "Element.show('search_indicator')",
+						:complete => "Element.hide('search_indicator')",
+	  					:update => 'ticket_grid' %>
+	<select id="engineer_id" name="engineer_id">
+	    <option value="0" selected="selected">All engineers</option>
+		<%= options_from_collection_for_select(Engineer.find(:all, :order => 'first_name, last_name'), 'id', 'full_name', selected_value = ((session[:search_params][:engineer_id]).to_i if session[:search_params])) %>
+	</select>
+	<select id="customer_id" name="customer_id">
+	    <option value="0" selected="selected">All customers</option>
+		<%= options_from_collection_for_select(Customer.find(:all, :order => 'name'), 'id', 'name', selected_value = ((session[:search_params][:customer_id]).to_i if session[:search_params])) %>
+	</select>
+	<select id="status_id" name="status_id">
+	    <option value="open" selected="selected">* Not Closed</option>
+	    <option value="0">* Any status</option>
+		<%= options_from_collection_for_select(Status.find(:all), 'id', 'name', selected_value = ((session[:search_params][:status_id]).to_i if session[:search_params])) %>
+	</select>
+	<strong style="color:#399DCF; font-size:22px; font-weight:bold;"> + </strong>
+	<%= text_field_tag :search_field, ((session[:search_params][:search_field]).to_s if session[:search_params]) %>
+	<span style='position: relative; top: 8px;'>
+		<%= image_submit_tag 'buttons/btn-search.gif' %>
+	</span>
+	<%= end_form_tag %><br />
+	<div id="search_indicator" style="float:right; padding:0px 18px 0; display:none;">
+		<%= image_tag 'activity_indicator.gif' %>
+	</div>
+	<div style='margin:-10px, 5px; padding:0'>
+		<%= link_to_remote image_tag("buttons/btn-needUpdate.gif"),{:update => "ticket_grid",
+											:loading => "Element.show('search_indicator')",
+											:complete => "Element.hide('search_indicator')",
+     									 	:url => { :action => 'list_all', :params => { :status_id => '1, 2' } } } %>
+
+		<%= link_to_remote image_tag("buttons/btn-contactedOver24.gif"), {:update => "ticket_grid",
+												 :loading => "Element.show('search_indicator')",
+												 :complete => "Element.hide('search_indicator')",
+		    									 :url => { :action => 'list_all', :params => { :status_id => '2', :updated_before => Time.now.yesterday.to_s(:db) } } } %>
+
+		<%= link_to_remote image_tag("buttons/btn-highPriority.gif"),	{:update => "ticket_grid",
+											:loading => "Element.show('search_indicator')",
+											:complete => "Element.hide('search_indicator')",
+		    								:url => { :action => 'list_all', :params => { :priority_id => '1' } } } %>
+
+		<%= link_to_remote image_tag("buttons/btn-20oldestOpen.gif"), {:update => "ticket_grid",
+											 :loading => "Element.show('search_indicator')",
+											 :complete => "Element.hide('search_indicator')",
+		    								 :url => { :action => 'list_all', :params => { :status_id => '1, 2, 3', :limit => 12 } }} %>
+		
+		
+	</div>
+</div>

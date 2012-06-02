@@ -1,0 +1,15 @@
+# We close the JS lightbox with custom JS
+page << "lightbox.prototype.deactivate('lbox[1]')"
+# We insert the newly created engineer at the top of the tickets table
+page.insert_html :after, 'engineers_table_header', :partial => 'engineer', 
+                                                   :object => @engineer
+#once page loaded lightbox object need to create manually if added by ajax like this..
+page << "new lightbox($('row_en_#{@engineer.id}'))"
+# We highlight it
+page.visual_effect :highlight, "engineer_#{@engineer.id}"
+# We put in a notice the the engineer has successfully been created
+page.replace_html 'notices_container', :partial => 'admin/shared/notice', :object => flash[:notice]
+# We take the notice out
+# page.delay(5) do
+#     page.visual_effect :fade, 'green_notice'
+# end

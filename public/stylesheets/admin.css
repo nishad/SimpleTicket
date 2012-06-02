@@ -1,0 +1,807 @@
+/* base */
+
+body {
+        margin:0;
+        padding:0;
+        overflow: scroll;
+        font-family: Verdana, "MS Trebuchet", sans-serif;
+        font-size: 12px;
+        line-height: 14px
+        margin:         0;
+        padding:        0;
+        position: relative;
+}
+
+a:link, a:visited {
+        color: #399DCF;
+        text-decoration: none;
+}
+a:hover {
+        color: #fff;
+        background: #399DCF;
+}
+
+h3 {
+        font-size: 20px;
+        margin: 10px 0 5px;
+        padding: 10px 30px 15px;
+        color: #aaa;
+}
+
+a img {
+        border:none;
+}
+
+label {
+        margin-bottom: 3px;
+        font-weight: bold;
+        font-family: Helvetica, Arial Neu, sans-serif;
+}
+
+
+strong {
+        color: #333;
+}
+
+
+/* content */
+
+#content {
+        margin: -35px 290px 50px 10px;
+        padding:0px;
+        position:relative;
+}
+
+#content-inner {
+        width:98%;
+        background-color: #eee;
+}
+
+#content_all {
+        margin: 10px 290px 50px 10px;
+        padding:0px;
+        position:relative;
+}
+
+#content_large {
+        margin:0px 20px 50px 10px;
+        padding:0px;
+        position:relative;
+}
+
+/* right boxes */
+
+#right_col {
+    float:right;
+        top:120px;
+        margin-right: 20px;
+        width: 242px;
+        padding:10px;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        width:230px;
+}
+body>#right_col {width:230px;}
+
+
+.right_box {
+        width:232px;
+        padding:10px;
+        margin-bottom: 10px;
+        border: 3px solid #eee;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        width:220px;
+}
+body>.right_box {width:220px;}
+
+
+
+/* footer */
+
+#footer {
+        clear: both;
+        color: #aaa;
+        font-size:10px;
+        margin: 0;
+        padding: 6px 10px;
+        height:32px;
+        line-height:11px;
+        border-top: 1px solid #ccc;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        height:20px;
+}
+body>#footer {height:20px;}
+
+img#spur {
+        float:right;
+        margin-top:-4px;
+        padding: -8px 15px 0;
+}
+
+
+
+/* header */
+
+#header {
+        margin: 0;
+        padding: 15px 0px 15px 20px;
+        /* For IE5/Win's benefit height = [correct height] + [top padding] + [top and bottom border widths] */
+        height:50px; /* 20px + 15px + 2px = 32px */
+        /* Here is the ugly brilliant hack that protects IE5/Win from its own stupidity. */
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        height:38px; /* the correct height */
+}
+body>#header {height:38px;} /* "be nice to Opera 5" rule */
+
+#notices_container {
+        /* {display: none} deactivates flash messages */
+        display: none;
+        position: absolute;
+        left: 250px;
+        width:400px;
+        top: 14px;
+        font-weight: bold;
+}
+
+#green_notice {
+        background-color:lightgreen;
+        border: 2px solid green;
+        padding:12px;
+        width:370px;
+        height:100%;
+        color:green;
+}
+
+#red_notice {
+        background-color: #FFB3B3;
+        border: 2px solid red;
+        padding:12px;
+        width:370px;
+        height:100%;
+        color:red;
+}
+
+
+/* menus */
+
+#main_menu {
+        margin: 0;
+	padding: 0;
+        height:57px;
+        background-color:#eee;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        height:45px;
+}
+body>#main_menu { height:45px; padding: 0; margin: 0; }
+
+div#main_menu ul#menu {
+        font-size:11px;
+        padding: 7px 0px 0px 60px;
+        list-style: none;
+}
+
+div#main_menu li {
+        display: inline;
+        margin: 0px 5px;
+}
+
+ul#menu a:link, ul#menu a:visited {
+	text-decoration: none;
+	color: #000;
+	padding: 7px 10px 8px;
+	font-weight: bold;
+}
+
+ul#menu a:hover, ul#menu a:active {
+	text-decoration: none;
+	color: #000; 
+	background-color: #CCC;
+}
+
+ul#menu a:link.selected, ul#menu a:visited.selected {
+        background: #CCC url(/images/main_menu_background.gif) repeat-x bottom right;
+}
+
+ul#menu a:link.inactive, ul#menu a:visited.inactive {
+        color: #999;
+}
+
+ul#menu a:hover.inactive, ul#menu a:active.inactive {
+        color: #999;
+        background-color: #EEE !important;
+        cursor: default;
+}
+
+.submenu {
+        margin:  4px 320px 50px 10px;
+        padding: 0 10px 10px 30px;
+        list-style-type: none;
+}
+
+.submenu li  {
+        display: inline;
+        margin: 0px 5px;
+}
+
+.submenu li a:link, .submenu li a:visited {
+	padding: 0px 5px 5px;
+	padding-bottom: 3px;
+	color: black;
+	border-bottom: 3px solid white;
+	background-color: white;
+}
+
+.submenu li a:hover, .submenu li a:active {
+        border-bottom-color: grey;
+}
+
+.submenu li a:link.selected, .submenu li a:visited.selected {
+        border-bottom-color: black;
+}
+
+#administration {
+        margin:  4px 320px 10px 300px !important;
+}
+
+#statistics {
+        margin:  4px 0px 15px 200px !important;
+}
+
+/* creation links */
+
+#create_area {
+        position: absolute;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        top:52px;
+        right:290px;
+        width:247px;
+        padding:5px;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        width:235px;
+        text-align: right;
+}
+body>#create_area {width:235px;}
+
+#create_area_large {
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        top:52px;
+        right:30px;
+        width:247px;
+        padding:5px;
+        voice-family: "\"}\"";
+        voice-family:inherit;
+        width:235px;
+        text-align: right;
+}
+body>#create_area_large {width:235px;}
+
+
+/*div#create_area a:link,
+div#create_area a:visited,
+div#create_area_large a:link,
+div#create_area_large a:visited,
+div#search a:link,
+div#search a:visited,
+a:link.button,
+a:visited.button {
+
+        color: white;
+        background-color: #399DCF;
+        padding: 5px 7px;
+        font-weight: bold;
+}
+
+div#create_area a:hover,
+div#create_area a:active,
+div#create_area_large a:hover,
+div#create_area_large a:active,
+div#search a:hover,
+div#search a:active,
+a:hover.button,
+a:active.button {
+        background-color: #288CBE;
+}*/
+
+/* new */
+
+#ticket {
+        top:3%;
+        left:50%;
+        z-index:9999;
+        width:400px;
+        height:333px;
+        margin:35px 0 0 150px;
+        border: 4px solid #ccc;
+        background:#eee;
+        text-align:left;
+        padding:7px;
+		padding-left: 20px;
+}
+
+#customer {
+        top:50%;
+        left:50%;
+        z-index:9999;
+        width:670px;
+        height:276px;
+        margin: 0px 0 0 50px;
+        border: 4px solid #ccc;
+        background:#eee;
+        text-align:left;
+        padding:15px;
+}
+.customer_left {
+                     width:320;
+                     margin: 0px 0px 5px 5px;
+                     position: absolute;
+                     padding:0
+}
+
+.customer_line {
+          width:232px;
+}
+
+#customer_city {
+          width:94px;
+}
+
+#customer_zip {
+          width:52px;
+}
+
+.customer_right {
+                width:320;
+                margin: 0px 15px 15px 300px;
+                float:right;
+                padding:0
+}
+#customer_contracted_users {
+          width:52px;
+}
+
+
+#engineer {
+		left: 10%;
+        width:720px;
+        height:198px;
+        margin: 0px 0 0 10px;
+        border: 4px solid #ccc;
+        background:#eee;
+        text-align:left;
+        padding:5px;
+}
+
+/* data tables */
+
+table#data-table {
+        margin: 0 0 0px 0;
+        width: 100%;
+        font-size: x-small;
+        border-collapse: collapse;
+}
+
+table#data-table th {
+        padding: 5px 10px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 2px solid #8AB31A;
+        background: #eee;
+}
+
+table#data-table th em {
+        display: block;
+        margin: 2px 0 0 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 85%;
+        color: #555;
+}
+
+table#data-table td {
+        margin: 0;
+        padding: 5px 10px;
+        vertical-align: top;
+        text-align: left;
+}
+
+table#data-table td.blue {
+                background: #cff;
+}
+
+table#data-table td.green {
+                background: #cf9;
+}
+
+table#data-table td.yellow {
+                background: #ff9;
+}
+
+table#data-table td.red {
+                background: #fcc;
+}
+
+table#data-table tr.alt td {
+        background: #f9f9f9;
+}
+
+table#data-table td.last, table#data-table th.last {
+        border-bottom: none;
+}
+
+table#data-table td p {
+        margin: 10px 0 0 0;
+        padding: 0;
+        font-size: 85%;
+        color: #555;
+}
+
+table.num th, table.num td {
+        text-align: right;
+}
+
+table#data-table td.center, table#data-table th.center {
+        text-align: center;
+}
+
+table#data-table tr {
+        background-color:       white;
+}
+
+/* table details */
+
+#table_details_view {
+        background-color:#EDEDED;
+        border: 3px solid #C9C9C9;
+        font-size: 8pt;
+        line-height: 10pt;
+        padding: 5px;
+}
+
+#table_details_view h2 {
+        color: #333;
+        font-size: 13px;
+        font-weight: bold;
+        margin: 2px 2px 8px;
+        padding-left: 25px;
+        background: url(/images/simpleticket_bullet.gif) no-repeat top left;
+}
+
+#table_details_view h3 {
+        color: #399DCF;
+        font-size: 13px;
+        font-weight: bold;
+        margin: 2px 2px 0px;
+        padding-left: 5px;
+}
+
+td#table_details_view th {
+        border: none;
+}
+
+#table_details_view td {
+        background-color: #EDEDED;
+}
+
+.tags {
+        float: right;
+        width:130px;
+        height:110px;
+        padding: 5px 10px;
+        margin: 30px -10px 0 8px;
+        color:grey;
+        overload: auto;
+}
+
+.ticket_actions {
+        float: right;
+        width:100px;
+        padding: 0px 0px 10px;
+        margin-right: -10px;
+}
+
+.ticket_actions img {
+        position: relative;
+        top: 5px;
+}
+
+.ticket_actions a:link, .ticket_actions a:visited {
+        position: relative;
+        top: 5px;
+        display: block;
+        font-size: 10px;
+        color: #666;
+        margin: 0 5px 0px;
+}
+
+.ticket_actions a:hover, .ticket_actions a:active {
+        background-color: #ddd;
+        border-left-color: #288CBE;
+        background-position: 50% 0;
+}
+
+.ticket_actions a:hover.greyed_out, .ticket_actions a:active.greyed_out {
+        background-color: #EDEDED;
+        border-left-color: #ccc;
+        cursor: default;
+}
+
+.ticket_actions a:link.greyed_out, .ticket_actions a:visited.greyed_out {
+/*      border-left: 20px solid #bbb;*/
+        background-color: none;
+        color: #ccc;
+}
+
+.ticket_line {
+        cursor:pointer;
+}
+
+#ticket_details {
+        margin-right:150px;
+}
+
+/* forms */
+
+
+
+
+/* search */
+
+#search {
+        background-color:#eee;
+        margin: 0 300px 15px 20px;
+        padding: 8px 8px 20px;
+}
+
+/* ticket status classes */
+
+.pending_over_30min {
+        background-color: #FF8A8A !important;
+}
+
+.contacted {
+        background-color: #8AFF8A !important;
+}
+
+.contacted_over_24h {
+        background-color: #FFC48A !important;
+}
+
+/* history */
+
+#ticket_history {
+        position: relative;
+        top:-100px;
+        z-index:9999;
+        width:600px;
+        height:490px;
+        margin:35px 0 0 150px;
+        border: 4px solid #ccc;
+        background:#eee;
+        text-align:left;
+        padding:15px;
+}
+
+#history_container {
+        padding:10px;
+}
+#history_container h3 {
+        padding:0 10px 20px;
+        margin: 0;
+        color: #444;
+        font-size: 18px;
+}
+
+
+/* Ticket update */
+
+td.ticket_update label {
+        font-family: Verdana, "MS Trebuchet", sans-serif;
+        font-weight: bold;
+        color: #333;
+}
+
+div.ticket_update_comment {
+        float: right;
+        width:330px;
+        padding: 0px 0px;
+        margin: -10px -12px 0 0;
+}
+
+/* Administration & Statistics */
+
+h3.administration, h3.statistics {
+        margin: 0px 0 5px;
+        padding: 0px 30px 15px;
+}
+
+/* RSS link */
+
+#above_tickets_table_bar {
+        text-align:right;
+        padding:0 10px 25px;
+        margin:0 10px 0 0;
+}
+
+#above_tickets_table_bar a, #above_tickets_table_bar a:hover {
+        border: none;
+        background-color: none;
+}
+
+
+/*validations related entries*/
+
+input.required, textarea.required {
+/*	border: 1px solid #00A8E6;*/
+}
+input.validation-failed, textarea.validation-failed {
+	border: 2px solid #FF3300;
+	color : #FF3300;
+}
+input.validation-passed, textarea.validation-passed {
+	border: 1px solid #00CC00;
+	color : #000;
+}
+
+.validation-advice {
+	padding: 3px 0px 2px 0px;
+	background-color: transperant;
+	color : #FF3300;
+	font-weight: bold;
+	display: in-line;
+}
+
+.custom-advice {
+	margin: 5px 0;
+	padding: 5px;
+	background-color: #C8AA00;
+	color : #FFF;
+	font-weight: bold;
+}
+
+/* =========================================== */
+/* = jhform style. Author: Jeremy Herrington = */
+/* =========================================== */
+
+div.jhform form {
+/*  font-size: 85%;*/
+  width: 100%;
+  background-color: #efefef;
+}
+
+div.jhform fieldset {
+  margin: 20px 0; 
+  padding: 1em;
+  border-bottom: 1px #efefef solid;
+  border-right: 1px #efefef solid;
+  border-left: 1px #efefef solid;
+ border-top: 2px #efefef solid;
+}
+
+div.jhform legend {
+  font-size: 150%;
+  font-weight: bold;
+  color: #399dcf;
+  padding-top: 5px;
+}
+
+
+div.jhform label {
+  display: block;
+  color: #666;
+  float: left;
+  width: 18%;
+}
+
+.required {
+  font-size: 100%;
+  color:#de4908;
+}
+
+div.jhform input {
+  width: 79%;
+}
+
+
+div.jhform input.radio, div.jhform input.submit {
+  width: auto;
+}
+
+div.jhform input:focus, div.jhform textarea:focus {
+  background: #edfade;
+}
+
+div.jhform input.radio {
+  float: left;
+  margin-right: 1em;
+}
+
+div.jhform textarea {
+  width: 79%;
+  height: 100px;
+}
+
+div.jhform input.submit {
+float: right;
+background-color: #99f;
+padding: 2px 5px;
+}
+
+.requiredlegend {
+  float: left;
+  padding-left: 20px;
+  font-size: 70%;
+  color: #666;
+}
+
+/* =========================== */
+/* = Alerts & Notices Styles = */
+/* =========================== */
+
+div#alerts {
+	float: left;
+	width: 20%;
+}
+
+div#notices {
+	float: right;
+	width: 79%;
+}
+
+/* =================== */
+/* = sortable styles = */
+/* =================== */
+
+table.sortable a.sortheader {
+    background-color:#eee;
+    color:#000;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+
+table.sortable a.sortheader:hover {
+	background-color: #bbb;
+}
+
+table.sortable span.sortarrow {
+    color: black;
+    text-decoration: none;
+}
+
+/* ================= */
+/* = sidebar stats = */
+/* ================= */
+
+table.sidebar th {
+	padding: 5px 5px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #8AB31A;
+    background: #eee;
+}
+
+/* ======================== */
+/* = sidebar blog entries = */
+/* ======================== */
+
+ul.simple_list {
+	padding-left: 0;
+	margin-left: 0;
+	border-bottom: 1px solid gray;
+}
+
+ul.simple_list li {
+	list-style: none;
+	margin: 0;
+	padding: 0.25em;
+	border-top: 1px solid #efefef;
+}

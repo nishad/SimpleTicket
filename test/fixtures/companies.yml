@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+architel:
+  id: 1
+  name: architel
+apple:
+  id: 2
+  name: apple
+mscrap:
+  id: 3
+  name: microsoft

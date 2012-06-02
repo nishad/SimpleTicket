@@ -1,0 +1,68 @@
+# Some customers...
+
+<% now = Time.now %>
+
+customer1:
+  id:         1
+  name:       Gaming Store
+  address1:   4520 Main St # 700
+  address2:   
+  city:       Kansas City
+  state_id:   25
+  zip:        64111
+  phone:      495874111
+  image_url:  1.gif
+  website:   http://www.gstore.us
+  wiki: http://wiki.gstore.us
+  maildomain: gstore.us
+  created_at: <%= creation_time = now.last_year %>
+  updated_at: <%= creation_time.next_week %>
+  ceo_name: Joseph Allen
+  ceo_phone: 013054302
+  contact_name: Jeremy Johnson
+  contact_phone: 4423115442
+  contracted_users: 10
+
+  
+general_comp:
+  id: 2
+  name: General Computing
+  address1: 1245, Rails drive
+  address2: building A32
+  city: Seattle
+  state_id: 47
+  zip: 45678
+  phone: 000-123-4567
+  image_url: 2.jpg
+  website: http://www.gcomp.com
+  wiki: http://wiki.gcomp.com
+  maildomain: gcomp.com
+  created_at: <%= creation_time = now.months_ago(5) %>
+  updated_at: <%= creation_time.months_since(2) %>
+  ceo_name: Mary Stuart
+  ceo_phone: 874521
+  contact_name: Mitch Davenson
+  contact_phone: 5858588558
+  contracted_users: 2
+
+
+jojogo_doesnt_validate:
+  id: 3
+  name: Jojo Go
+  address1: 32, resy Park
+  address2: 
+  city: Lawrence
+  state_id: 16
+  zip: 23589
+  phone: 5268459882
+  image_url: 3.png
+  website: http://www.jojogopools.com
+  wiki: http://wiki.jojogopools.com
+  maildomain:
+  created_at: <%= creation_time = now.last_month %>
+  updated_at: <%= creation_time.next_week %>
+  ceo_name: Jean Moisson
+  ceo_phone: 3963000021
+  contact_name: Fabien Montruel
+  contact_phone: 41535400
+  contracted_users: 150

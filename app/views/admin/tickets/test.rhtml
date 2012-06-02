@@ -1,0 +1,26 @@
+<%= collection_select 'customer', 'id', @customers, 'id', 'name' %>
+<%= observe_field 'customer_id', :url => {:action => 'find_users'}, 
+         :with => "'customer=' + escape(value)" %>
+
+<br /><br /><br /><br /><br />
+<%= collection_select 'customer', 'id', @customers, 'id', 'name', {:include_blank => true},
+                               {:onchange => remote_function(
+                               :url => {:controller => 'tickets', :action => "find_users"},
+                               :with => "'customer=' + escape(value)",
+                               :method => "post")}
+%>
+
+<br /><br /><br />
+
+<div id="user_select">
+	Yo
+</div>
+
+
+<br /><br /><br />
+
+<%= collection_select 'customer', 'id', @customers, 'id', 'name', {:include_blank => true},
+                      {:onchange => remote_function(
+                      :url => {:controller => 'tickets', :action => "find_users"},
+                      :with => "'customer=' + escape(value)",
+                      :method => "post")} %>

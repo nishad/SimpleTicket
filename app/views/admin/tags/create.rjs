@@ -1,0 +1,14 @@
+# tags
+page.replace_html 'notices_container', :partial => 'admin/shared/notice', :object => flash[:notice]
+page.remove "ticket_#{@ticket.id}_update", "ticket_#{@ticket.id}_quick_update", "ticket_#{@ticket.id}_details"
+page.replace "ticket_#{@ticket.id}",  :partial => '/admin/tickets/ticket_line', 
+                                                  :object => @ticket,
+                                                  :locals => { :actions => @actions,
+                                                               :ticket_update => @ticket_update,
+                                                               :engineers => @engineers,
+                                                               :priorities => @priorities,
+                                                               :statuses => @statuses}
+page.visual_effect :highlight, "ticket_#{@ticket.id}"
+# page.delay(5) do
+#     page.visual_effect :fade, 'green_notice'
+# end

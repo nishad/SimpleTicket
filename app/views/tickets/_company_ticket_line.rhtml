@@ -1,0 +1,30 @@
+<tr href='#ticket_<%= company_ticket_line.id %>_details' style='cursor: pointer;background-color:<%= cycle("#FFF", "#F3F3F3") -%>' id="ticket_<%= company_ticket_line.id %>" class="company_ticket_line <%= company_ticket_line.simple_status -%>" onclick="Element.toggle('ticket_<%= company_ticket_line.id %>_details');return false;">
+
+ <td><%= h company_ticket_line.subject %></td>
+ <td><%= time_ago_in_words(company_ticket_line.created_at) %></td>
+        <td><a href="#">open&nbsp;ticket</a></td>
+</tr>
+<tr id="ticket_<%= company_ticket_line.id %>_details" style="<%= 'display:none' %>">
+	<td colspan="3" id="table_details_view" class="ticket_update">
+		<%= render :partial => "ticket_right_bar", :locals=>{:line_id=>company_ticket_line.id} -%>
+		<h3><%= @options[:detail] %></h3>
+		<strong>User:</strong> <%= h company_ticket_line.user.full_name %><br />
+		<strong>Description:</strong> <%= h company_ticket_line.body %>
+		<div id="engineer_info">
+			<strong>Update ticket:</strong>
+			<label for="engineer" style='padding-left:10px'>Assigned to: </label>
+			<%= company_ticket_line.engineer.full_name if company_ticket_line.engineer %>
+			<label for="phone" style='padding-left:10px'>Phone: </label>
+			<%= company_ticket_line.engineer.office_phone if company_ticket_line.engineer %>
+		</div>
+		<%= form_tag :action => "update_ticket", :id => company_ticket_line.id, :time_spent => 0 %>
+		<%= text_area_tag "comment", nil, :size => "25x4", :style => "width:100%" -%>
+		<div style ='float: left'>
+			<%= activity_indicator "update_indicator_#{company_ticket_line.id}" -%>
+		</div>
+		<div style ='float: right'>
+		<%= image_submit_tag "buttons/#{@options[:button]}" -%>
+		</div>
+		</form>
+	</td>
+</tr>

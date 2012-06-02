@@ -1,0 +1,14 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "tickets" } %>
+<%# render :partial => 'sidebar_stats' %>
+
+<%= render :partial => "create_area" %>
+<%= render :partial => 'admin/menus/tickets', :locals => { :selected => "all tickets" } %>
+<%= render :partial => "all_tickets_search", :locals => { :engineers => @engineers, :statuses => @statuses, :customers => @customers } %>
+<div id="content_all" style="width: 100%">
+	<div id="ticket_grid">
+		<div id="content-inner">
+			<%= render(:partial => "ticket_table", :object => @tickets) %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div style="float:right" class="right-ticket">
+	<ul>
+		<li><%= link_to "view history", {:action => "history", :id => line_id }, :popup => ['new_window', 'height=600,width=700,scrollbars=yes'] %>
+		<li><%= link_to "#{@options[:open]} ticket", :action => "toggle_ticket", :id  => line_id %></li>
+ 	<% if @options[:open] == "close" %>
+  		<li><%= link_to "escalate ticket", {:action => "escalate" }, :class => "lbOn" %>
+  	<% end %>
+  		<li><%= link_to_function "close view", "Element.toggle('ticket_#{line_id}_details')" %>
+	</ul>
+</div>

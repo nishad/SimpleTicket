@@ -1,0 +1,11 @@
+# We close the JS lightbox with custom JS
+page << "lightbox.prototype.deactivate('lbox[1]')"
+# We insert the updated engineer at the top of the tickets table
+page.replace "engineer_#{@engineer.id}", :partial => 'engineer', :object => @engineer
+# We highlight it
+#once page loaded lightbox object need to create manually if added by ajax like this..
+page << "new lightbox($('row_en_#{@engineer.id}'))"
+page.visual_effect :highlight, "engineer_#{@engineer.id}"
+# We show a flash notice
+# This is a helper method in ApplicationHelpers
+# page.flash_notice(flash[:notice])

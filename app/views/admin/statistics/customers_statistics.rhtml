@@ -1,0 +1,26 @@
+<%= render :partial => 'admin/shared/header' %>
+<%= render :partial => 'admin/menus/main', :locals => { :selected => "statistics" } %>
+<%# render :partial => '/admin/tickets/create_area_large' -%>
+<%= render :partial => 'admin/menus/statistics', :locals => { :selected => "customers" } %>
+<h3 class='administration'>Customer statistics - Past 30 Days</h3>
+<div id="content_large">
+<div id="content-inner">
+	<table id='data-table'>
+		<tr id='table_header'>
+			<th>Customer</th>
+			<th class="center">No. Users</th>
+			<th class="center">Open tickets</th>
+			<th class="center">% Open Tickets (>5days).</th>
+			<th class="center">Closed Tickets</th>
+			<th class="center">Hours spent</th>
+			<th class="center">No. of Engineers Working</th>
+			<th class="center">Average Hours Open</th>
+			<th class="center">Average Minutes Pending</th>
+			<th class="center">No. Ticket over 30</th>
+			<th class="center">% of Tickets Entered</th>
+			<th class="center">% of Users Submitting Tickets</th>
+		</tr>
+		<%= render(:partial => "customer", :collection => @customers) %>
+	</table>
+</div>
+</div>

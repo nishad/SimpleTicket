@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>login</title>
+	<link rel="shortcut icon" href="/images/favicon.ico" />
+	<style type="text/css" media="screen">
+		body {
+			font: 90% Arial, "MS Trebuchet", sans-serif;
+		}
+		#login {
+			position: absolute;
+			left: 30%;
+			right: 30%;
+			top: 30%; 
+			width:360px; 
+			border: 9px solid #aaa; 
+			padding: 0px;
+			background-color: lightgrey;
+		}
+		#login h3{
+			padding: 9px;
+			margin:0px;
+			background: #333;
+			color: #DDD;
+		}
+		#red_notice{
+			padding: 9px;
+			margin:0px;
+			background: darkred;
+			color: #eee;
+			margin-bottom: 12px;
+		}
+		#login form{
+			margin-top: 12px;
+			padding: 9px;
+		}
+		#login #buttons{
+			text-align: right;
+			margin: 0px;
+			padding: 10px 25px 0px 0px;
+		}
+		#login input{
+			padding: 3px;
+		}
+		#clear {
+			clear: both;
+		}
+		#header {
+		        margin: 0;
+		        padding: 15px 0px 15px 20px;
+		        /* For IE5/Win's benefit height = [correct height] + [top padding] + [top and bottom border widths] */
+		        height:50px; /* 20px + 15px + 2px = 32px */
+		        /* Here is the ugly brilliant hack that protects IE5/Win from its own stupidity. */
+		        voice-family: "\"}\"";
+		        voice-family:inherit;
+		        height:38px; /* the correct height */
+		}
+		
+		body>#header {height:38px;} /* "be nice to Opera 5" rule */
+		
+		#footer {
+			position: absolute;
+			top: 81%; 
+		}
+		#footer {
+		        clear: both;
+		        color: #aaa;
+		        font-size:10px;
+		        margin: 0;
+		        padding: 6px 10px;
+		        height:32px;
+		        line-height:11px;
+		        border-top: 1px solid #ccc;
+		        voice-family: "\"}\"";
+		        voice-family:inherit;
+		        height:20px;
+		}
+		body>#footer {height:20px;}
+
+		img#spur {
+		        float:right;
+		        margin-top:-4px;
+		        padding: -8px 15px 0;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<div id="header">
+		<div id="header_right" style='float: right; padding: 5px 10px;'>
+			<div style='height:35px; margin: 0'>
+				<%= image_tag 'activity_indicator.gif', :id => 'list_pending_indicator', :style => 'display:none;' %>
+			</div>	
+		</div>
+
+
+		<%= image_tag "simpleticket" %>
+	</div>
+	<div id="login">
+		<h3>Please Login</h3>
+			<% if flash[:warning] %>
+				<div id="red_notice">
+					<%= flash[:warning] %>
+					<% flash[:warning] = nil %>
+				</div>
+			<% end %>
+		<%= start_form_tag :action => "index" %> 
+		<table border="0" cellspacing="0" cellpadding="1">
+			<tr>
+				<td style='text-align:left'>
+					<label for="email_address">Email&nbsp;Address:</label>
+				</td>
+				<td>
+					<%= text_field_tag :email,{}, {:size => 27} -%>
+				</td>
+			</tr>
+			<tr>
+				<td style='text-align:right'>
+					<label for="password">Password:</label>				
+				</td>
+				<td>
+					<%= password_field_tag :password,{}, {:size => 27} -%>				
+				</td>
+			</tr>
+		</table>
+		<div id="buttons"><%= submit_tag 'Sign In' -%></div>
+		<%= end_form_tag %>
+	</div>
+	<div id="clear">&nbsp;</div>
+	<div id="footer">
+		<%= image_tag "spur", :id => "spur" %>
+		© Copyright 2005-2006 SimpleTicket, an open source initiative by Spur, the company behind Architel, Weblogs Work & Big in Japan.  
+		SimpleTicket has been released under the OSI GNU General Public License (GPL).  To obtain an alternate license, customization or 
+		hosting visit our website at http://www.simpleticket.net for contact information.  SimpleTicket was written using Ruby on Rails and 
+		utilizes Microformats where possible.
+	</div>
+</body>
+</html>

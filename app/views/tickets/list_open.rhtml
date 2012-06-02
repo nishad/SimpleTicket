@@ -1,0 +1,11 @@
+<div class="leftcol">
+		<h2><%= @options[:title] %></h2>
+        <div class="create">
+        <%= render(:partial => "ticket_table", :object => @tickets) %>
+        </div>
+</div>
+<% periodically_call_remote    :url => { :action => :list_pending, :page => params[:page]  },
+                                                                :frequency => 15,
+                                                                :update => 'content-inner',
+                                                                :loading => "Element.show('list_pending_indicator')",
+                                                                :complete => "Element.hide('list_pending_indicator')" -%>

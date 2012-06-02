@@ -1,0 +1,18 @@
+<tr style='background-color:<%= cycle("#FFF", "#F3F3F3") -%>'>
+<td><%= link_to "#{customer.name}", :controller => "statistics", :action => "users_statistics", :company_id => customer.id %></td>
+<td class="center"><%= customer.user_count -%></td>
+<td class="center"><%= customer.OpenTickets -%></td>
+<td class="center"><%= if customer.Past5Perc.nil? ; 0 else ; number_with_precision(customer.Past5Perc,2) end -%></td>
+<td class="center"><%= customer.Past30DaysClosed -%></td>
+<td class="center"><%= customer.Prev30Hours -%></td>
+<td class="center"><%= customer.Past30DaysEngineers -%></td>
+<td class="center"><%= if customer.Past30AvgTimeToClose.nil? ; 0 else ; number_with_precision(customer.Past30AvgTimeToClose,2) end -%></td>
+<td class="center"><%= if customer.Past30PendingAvg.nil? ; 0 else ; number_with_precision(customer.Past30PendingAvg,2) end -%></td>
+<td class="center"><%= customer.Past30PendingOver30 -%></td>
+<% total_tickets = Company.find(customer.id).total_tickets.to_f %>
+<% tickets_count = Company.total_tickets.to_f %>
+<td class="center"><%= number_with_precision((total_tickets/tickets_count)*100,1) unless tickets_count == 0 %></td>
+<% total_users = Company.find(customer.id).total_users.to_f %>
+<% total_users_submit_tickets = Company.find(customer.id).total_users_submit_tickets.to_f %>
+<td class="center"><%= number_with_precision((total_users_submit_tickets/total_users)*100,1) unless total_users == 0 %></td>
+</tr>

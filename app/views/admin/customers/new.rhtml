@@ -1,0 +1,9 @@
+<div id="customer">
+        <h2>Create Customer</h2>
+        <% form_remote_for :customer, @customer, :url => {:controller => "customers", :action => "create"} do |f| %>
+                <%= render :partial => 'form', :locals => { :f => f }-%>
+                <div style="float:right; padding: 8px 20px;">
+                        <%= submit_tag 'create customer' %> or <a href="#" class="lbAction" rel="deactivate">cancel</a>
+                </div>
+        <% end %>
+</div>

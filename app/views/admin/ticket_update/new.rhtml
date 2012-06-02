@@ -1,0 +1,23 @@
+<div id="ticket">
+	<h2>Update Ticket</h2>
+	<% remote_form_for :update, @ticket_update, :url => {:controller => 'ticket_update', :action => 'create', :id => @ticket_update} do |f| -%>
+		<label for="action">Action: </label>
+		<%= collection_select 'update', 'action_id', @actions, 'id', 'name', {:include_blank => true} %>
+		<label for="time_spent" style='padding-left:10px'>Time spent:</label>
+		<%= f.text_field 'time_spent', :size => 5 -%>
+		<div style="margin: 10px 0;">
+			<label for="subject">Edit subject line: </label>
+			<%= f.text_field 'subject', :size => 35 -%><br />
+		</div>
+		<label for="comment">Comment update:</label><br />
+		<%= f.text_area 'comment', :cols => 50, :rows => 6 -%>
+		<div style="margin: 10px 0;">
+			<label for="priority">Priority:</label>
+			<%= collection_select 'update', 'priority_id', @priorities, 'id', 'name', {:include_blank => true} %>
+			<label for="engineer" style='padding-left:10px'>Reassign: </label>
+			<%= collection_select 'update', 'engineer_id', @engineers, 'id', 'full_name', {:include_blank => true} %> <br />
+		</div>
+		<%= submit_tag 'Update ticket' -%> or <a href="#" class="lbAction" rel="deactivate">cancel</a>
+	<% end -%>
+	
+</div>
